@@ -1,3 +1,11 @@
+//Alejandro Sanchez Padron
+//11/18/2018
+
+/* Class Car extends Class Vehicle, which includes everything that class Vehicle has and
+adds Features and carAxle
+ */
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Car extends Vehicle {
@@ -58,8 +66,7 @@ public class Car extends Vehicle {
     return list;
   }
 
-
-  String getInteriorFeatures() {
+  public String getInteriorFeatures() {
     String list = "";
 
 // Read the features into a comma separated list.
@@ -85,13 +92,13 @@ public class Car extends Vehicle {
       if (featureList.length() == 0) {
         featureList += this.featureList[i];
       } else {
-        featureList += "                    : " + this.featureList[i];
+        featureList += "" + this.featureList[i];
       }
     }
 
     return
         super.toString() +
-            "\nFeatures            : " + featureList +
+            "\nFeatures: \n" + featureList +
             "Car Axle            : " + carAxle + "\n";
 
   }
@@ -99,14 +106,14 @@ public class Car extends Vehicle {
 
   public static void main(String[] args) {
     //Test default constructor
-    Car one = new Car();
-    System.out.println(one.toString());
+   // Car one = new Car();
+    //System.out.println(one.toString());
 
     // Test overloaded constructor
     //Create the features
     Feature[] features = {new InteriorFeature("AM/FM Radio")
-        , new InteriorFeature("Air Conditioning")
         , new ExteriorFeature("Wood Panels")
+        , new InteriorFeature("Air Conditioning")
         , new ExteriorFeature("Moonroof")};
 
     Car two = new Car(new Date(), "Honda", "Honda", "Prelude",
