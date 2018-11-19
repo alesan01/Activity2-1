@@ -20,8 +20,8 @@ public class ManufacturedEngine implements Engine {
         engineMake = "Generic";
         engineModel = "Generic";
         engineCylinders = 0;
-        engineType = "85 AKI";
-        driveTrain = "2WD: Two-Wheel Drive";
+        engineType = "Generic";
+        driveTrain = "Generic";
     }
     // A public overloaded constructor with values for all of the variables defined above
 

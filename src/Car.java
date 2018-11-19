@@ -2,124 +2,119 @@ import java.util.Date;
 
 public class Car extends Vehicle {
 
-    private Feature[] feature = new Feature[10];
-    private int carAxle;
+  private Feature[] featureList;
+  private int carAxle;
 
-    //A public default constructor with no formal parameters and initialize
+  //A public default constructor with no formal parameters and initialize
 // all instance variables with generic literal values by using the super() call.
+  public Car() {
+    // Initialize vehicle.
+    super();
 
-    public Car() {
-        // Initialize vehicle.
-        super();
+    //Sets Features and axles
+    Feature[] f = {new InteriorFeature("No Interior Features")
+        , new ExteriorFeature("No Exterior Features")};
+    this.featureList = f;
+    this.carAxle = 2;
+  }
 
-        //Sets Features and axles
-        Feature[] f = {new InteriorFeature("No Interior Features")
-                , new ExteriorFeature("No Exterior Features")};
-        this.feature = f;
-        this.carAxle = 2;
-    }
 
-    //A public overloaded constructor with a super() method call and instantiation of
+  //A public overloaded constructor with a super() method call and instantiation of
 // values for all of the variables defined above
-    public Car(Date vehicleManufacturedDate,
-               String vehicleManufacturer,
-               String vehicleMake,
-               String vehicleModel,
-               Chassis vehicleFrame,
-               String vehicleType,
-               String driveTrain,
-               Engine vehicleEngine,
-               Feature[] feature,
-               int carAxle) {
+  public Car(Date vehicleManufacturedDate,
+      String vehicleManufacturer,
+      String vehicleMake,
+      String vehicleModel,
+      Chassis vehicleFrame,
+      String vehicleType,
+      String driveTrain,
+      Engine vehicleEngine,
+      Feature[] feature,
+      int carAxle) {
 
-        // Initialize vehicle.
-        super(vehicleManufacturedDate, vehicleManufacturer, vehicleMake, vehicleModel,
-                vehicleFrame, vehicleType, driveTrain, vehicleEngine);
+    // Initialize vehicle.
+    super(vehicleManufacturedDate, vehicleManufacturer, vehicleMake, vehicleModel,
+        vehicleFrame, vehicleType, driveTrain, vehicleEngine);
 
-        this.feature = feature;
-        this.carAxle = carAxle;
-    }
+    this.featureList = feature;
+    this.carAxle = carAxle;
+  }
 
-    public String getExteriorFeatures() {
-        String list = "";
-
-// Read the features into a comma separated list.
-
-        for (int i = 0; i < this.feature.length; i++) {
-
-            if (this.feature[i] instanceof ExteriorFeature) {
-                if (list.length() == 0) {
-                    list += this.feature[i];
-                } else {
-                    list += "\n              : " + this.feature[i];
-                }
-            }
-
-        }
-        return list;
-    }
-
-
-    String getInteriorFeatures() {
-        String list = "";
+  public String getExteriorFeatures() {
+    String list = "";
 
 // Read the features into a comma separated list.
+    for (int i = 0; i < this.featureList.length; i++) {
 
-        for (int i = 0; i < this.feature.length; i++) {
-
-            if (this.feature[i] instanceof InteriorFeature) {
-                if (list.length() == 0) {
-                    list += this.feature[i];
-                } else {
-                    list += "\n             : " + this.feature[i];
-                }
-            }
-
+      if (this.featureList[i] instanceof ExteriorFeature) {
+        if (list.length() == 0) {
+          list += this.featureList[i];
+        } else {
+          list += "\n              : " + this.featureList[i];
         }
-        return list;
+      }
+
     }
+    return list;
+  }
 
-    public String toString() {
 
-        String list = "";
-        // Read the features into a list.
-        for (int i = 0; i < this.feature.length; i++) {
-            if (list.length() == 0) {
-                list += this.feature[i];
-            } else {
-                list += "                    : " + this.feature[i];
-            }
+  String getInteriorFeatures() {
+    String list = "";
+
+// Read the features into a comma separated list.
+    for (int i = 0; i < this.featureList.length; i++) {
+
+      if (this.featureList[i] instanceof InteriorFeature) {
+        if (list.length() == 0) {
+          list += this.featureList[i];
+        } else {
+          list += "\n             : " + this.featureList[i];
         }
-        return "Manufacturer Name   : " + vehicleManufacturer +
-                "\nManufacturer Date   : " + vehicleManufacturedDate +
-                "\nVehicle Make        : " + vehicleMake +
-                "\nVehicle Model       : " + vehicleModel +
-                "\nVehicle Type        : " + vehicleType +
-                "\n" + vehicleEngine.toString() +
-                "\nFeatures            : " + list +
-                "Car Axle            : " + carAxle + "\n";
+      }
 
     }
+    return list;
+  }
 
+  public String toString() {
 
-    public static void main(String[] args) {
-        //Test default constructor
-        Car one = new Car();
-        System.out.println(one.toString());
-
-        // Test overloaded constructor
-        //Create the features
-        Feature[] features = {new InteriorFeature("AM/FM Radio")
-                , new InteriorFeature("Air Conditioning")
-                , new ExteriorFeature("Wood Panels")
-                , new ExteriorFeature("Moonroof")};
-
-        Car two = new Car(new Date(), "Honda", "Honda", "Prelude",
-                new VehicleFrame("Unibody"), "null", "2WD: Two-Wheel Drive",
-                new ManufacturedEngine("Honda", new Date(), "H-Series",
-                        "H23A1", "88 AKI", 4, "2WD: Two-Wheel Drive"), features, 2);
-        System.out.println(two.toString());
+    String featureList = "";
+    // Read the features into a featureList.
+    for (int i = 0; i < this.featureList.length; i++) {
+      if (featureList.length() == 0) {
+        featureList += this.featureList[i];
+      } else {
+        featureList += "                    : " + this.featureList[i];
+      }
     }
+
+    return
+        super.toString() +
+            "\nFeatures            : " + featureList +
+            "Car Axle            : " + carAxle + "\n";
+
+  }
+
+
+  public static void main(String[] args) {
+    //Test default constructor
+    Car one = new Car();
+    System.out.println(one.toString());
+
+    // Test overloaded constructor
+    //Create the features
+    Feature[] features = {new InteriorFeature("AM/FM Radio")
+        , new InteriorFeature("Air Conditioning")
+        , new ExteriorFeature("Wood Panels")
+        , new ExteriorFeature("Moonroof")};
+
+    Car two = new Car(new Date(), "Honda", "Honda", "Prelude",
+        new VehicleFrame("Unibody"), "null", "2WD: Two-Wheel Drive",
+        new ManufacturedEngine("Honda", new Date(), "H-Series",
+            "H23A1", "88 AKI", 4, "2WD: Two-Wheel Drive"), features, 2);
+    System.out.println(two.toString());
+  }
 }
 
 
