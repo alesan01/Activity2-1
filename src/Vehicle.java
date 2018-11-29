@@ -96,7 +96,7 @@ public class Vehicle implements Engine, Chassis {
    */
   public String toString() {
     return "Manufacturer Name   : " + vehicleManufacturer
-        + "\nManufacturer Date   : " + vehicleManufacturedDate
+        + "\nManufactured Date   : " + vehicleManufacturedDate
         + "\nVehicle Make        : " + vehicleMake
         + "\nVehicle Model       : " + vehicleModel
         + "\nVehicle Type        : " + vehicleType
