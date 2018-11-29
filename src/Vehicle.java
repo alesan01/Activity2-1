@@ -11,7 +11,9 @@ public class Vehicle implements Engine, Chassis {
   String driveTrain;
   Engine vehicleEngine;
 
-  //default constructor
+  /**
+   * default constructor sets everything to generic.
+   */
   public Vehicle() {
     vehicleManufacturedDate = new Date();
     vehicleManufacturer = "Generic";
@@ -26,6 +28,10 @@ public class Vehicle implements Engine, Chassis {
   }
 
   //Overloaded constructor
+
+  /**
+   * Overloaded Vehicle constructor.
+   */
   public Vehicle(Date vehicleManufacturedDate, String vehicleManufacturer, String vehicleMake,
       String vehicleModel,
       Chassis vehicleFrame, String vehicleType, String driveTrain, Engine vehicleEngine) {
@@ -85,15 +91,21 @@ public class Vehicle implements Engine, Chassis {
     vehicleEngine.setEngineType(fuel);
   }
 
+  /**
+   * toString function returns  vehicle information as a string.
+   */
   public String toString() {
-    return "Manufacturer Name   : " + vehicleManufacturer +
-        "\nManufacturer Date   : " + vehicleManufacturedDate +
-        "\nVehicle Make        : " + vehicleMake +
-        "\nVehicle Model       : " + vehicleModel +
-        "\nVehicle Type        : " + vehicleType +
-        "\n" + vehicleEngine.toString();
+    return "Manufacturer Name   : " + vehicleManufacturer
+        + "\nManufacturer Date   : " + vehicleManufacturedDate
+        + "\nVehicle Make        : " + vehicleMake
+        + "\nVehicle Model       : " + vehicleModel
+        + "\nVehicle Type        : " + vehicleType
+        + "\n" + vehicleEngine.toString();
   }
 
+  /**
+   * main method tests two scenarios.
+   */
   public static void main(String[] args) {
 
     // Test default constructor and print

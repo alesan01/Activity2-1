@@ -2,12 +2,14 @@ public class InteriorFeature implements Feature {
 
   String interiorFeature;
 
-  //A public default constructor without parameters that sets the interiorFeature instance variable to “Generic”.
+  //A public default constructor without parameters that sets the interiorFeature instance variable
+  // to “Generic”.
   public InteriorFeature() {
     interiorFeature = "Generic";
   }
 
-  //An overloaded constructor : Set the interiorFeature instance variable to the parameter interiorFeature.
+  //An overloaded constructor : Set the interiorFeature instance variable to the parameter
+  // interiorFeature.
   public InteriorFeature(String interiorFeature) {
     this.interiorFeature = interiorFeature;
   }
@@ -23,10 +25,13 @@ public class InteriorFeature implements Feature {
   }
 
   public String toString() {
-    return "Interior [" + interiorFeature + "] \n";
+    return "Interior [" + interiorFeature + "]";
   }
 
-  //Main method used to test two scenarios
+
+  /**
+   * Main method used to test two scenarios.
+   */
   public static void main(String[] args) {
     InteriorFeature one = new InteriorFeature();
     InteriorFeature two = new InteriorFeature("Climate Control");
